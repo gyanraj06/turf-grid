@@ -10,6 +10,7 @@ class TurfModel {
   final String id;
   final String name;
   final String location;
+  final String city;
   final String imageUrl;
   final double rating;
   final double distanceKm;
@@ -21,6 +22,7 @@ class TurfModel {
     required this.id,
     required this.name,
     required this.location,
+    required this.city,
     required this.imageUrl,
     required this.rating,
     required this.distanceKm,
@@ -65,7 +67,9 @@ class MockDataService {
       id: 't1',
       name: 'Striker\'s Arena',
       location: 'Indrapuri, Bhopal',
-      imageUrl: 'https://images.unsplash.com/photo-1529900748604-07564a03e7a6?auto=format&fit=crop&q=80&w=1000',
+      city: 'Bhopal',
+      imageUrl:
+          'https://images.unsplash.com/photo-1529900748604-07564a03e7a6?auto=format&fit=crop&q=80&w=1000',
       rating: 4.5,
       distanceKm: 2.5,
       pricePerHour: 1200,
@@ -76,7 +80,9 @@ class MockDataService {
       id: 't2',
       name: 'Goalazo Turf',
       location: 'Arera Colony, Bhopal',
-      imageUrl: 'https://images.unsplash.com/photo-1551958219-acbc608c6377?auto=format&fit=crop&q=80&w=1000',
+      city: 'Bhopal',
+      imageUrl:
+          'https://images.unsplash.com/photo-1551958219-acbc608c6377?auto=format&fit=crop&q=80&w=1000',
       rating: 4.8,
       distanceKm: 4.0,
       pricePerHour: 1500,
@@ -87,7 +93,9 @@ class MockDataService {
       id: 't3',
       name: 'Smash Zone',
       location: 'Kolar Road, Bhopal',
-      imageUrl: 'https://images.unsplash.com/photo-1626248801379-51a0748a5f96?auto=format&fit=crop&q=80&w=1000',
+      city: 'Bhopal',
+      imageUrl:
+          'https://images.unsplash.com/photo-1626248801379-51a0748a5f96?auto=format&fit=crop&q=80&w=1000',
       rating: 4.2,
       distanceKm: 6.2,
       pricePerHour: 800,
@@ -98,7 +106,9 @@ class MockDataService {
       id: 't4',
       name: 'Legends Pitch',
       location: 'Lalghati, Bhopal',
-      imageUrl: 'https://images.unsplash.com/photo-1575361204480-aadea25e6e68?auto=format&fit=crop&q=80&w=1000',
+      city: 'Bhopal',
+      imageUrl:
+          'https://images.unsplash.com/photo-1575361204480-aadea25e6e68?auto=format&fit=crop&q=80&w=1000',
       rating: 4.6,
       distanceKm: 8.5,
       pricePerHour: 1100,
@@ -109,16 +119,45 @@ class MockDataService {
       id: 't5',
       name: 'Urban Sports Hub',
       location: 'MP Nagar, Bhopal',
-      imageUrl: 'https://images.unsplash.com/photo-1596707328678-b1ad2c72b8d0?auto=format&fit=crop&q=80&w=1000',
+      city: 'Bhopal',
+      imageUrl:
+          'https://images.unsplash.com/photo-1596707328678-b1ad2c72b8d0?auto=format&fit=crop&q=80&w=1000',
       rating: 4.3,
       distanceKm: 1.2,
       pricePerHour: 1800,
       sports: ['Football', 'Cricket', 'Basketball'],
       amenities: ['Parking', 'Shower', 'Locker'],
     ),
+    TurfModel(
+      id: 't6',
+      name: 'Holkar Stadium',
+      location: 'Race Course Road, Indore',
+      city: 'Indore',
+      imageUrl:
+          'https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=1000',
+      rating: 4.9,
+      distanceKm: 0.0,
+      pricePerHour: 2000,
+      sports: ['Cricket'],
+      amenities: ['Stadium Seating', 'VIP Lounge'],
+    ),
+    TurfModel(
+      id: 't7',
+      name: 'Indore Sports Complex',
+      city: 'Indore',
+      location: 'Vijay Nagar, Indore',
+      imageUrl:
+          'https://images.unsplash.com/photo-1520639888713-7851133b1ed0?auto=format&fit=crop&q=80&w=1000',
+      rating: 4.4,
+      distanceKm: 1.5,
+      pricePerHour: 1300,
+      sports: ['Badminton', 'Tennis', 'Squash'],
+      amenities: ['Parking', 'Cafe', 'Pro Shop'],
+    ),
   ];
 
-  final UserModel _currentUser = UserModel(id: 'u1', name: 'Player One', points: 500);
+  final UserModel _currentUser =
+      UserModel(id: 'u1', name: 'Player One', points: 500);
 
   // Methods with artificial delay
   Future<List<TurfModel>> getTurfs() async {
@@ -139,7 +178,7 @@ class MockDataService {
     await Future.delayed(const Duration(milliseconds: 400));
     return _currentUser;
   }
-  
+
   // Mock booking slots logic
   Future<List<String>> getBookedSlots(String turfId, DateTime date) async {
     await Future.delayed(const Duration(milliseconds: 600));

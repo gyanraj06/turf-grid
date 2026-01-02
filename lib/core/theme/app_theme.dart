@@ -27,15 +27,16 @@ class AppTheme {
         onPrimary: Colors.black, // Dark text on lime/blue
         onSurface: AppColors.textPrimary,
       ),
-      textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme).apply(
+      textTheme:
+          GoogleFonts.chakraPetchTextTheme(ThemeData.dark().textTheme).apply(
         bodyColor: AppColors.textPrimary,
         displayColor: AppColors.textPrimary,
       ),
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
         backgroundColor: AppColors.background,
         elevation: 0,
         centerTitle: true,
-        titleTextStyle: TextStyle(
+        titleTextStyle: GoogleFonts.chakraPetch(
           fontSize: 18,
           fontWeight: FontWeight.bold,
           color: AppColors.textPrimary,
